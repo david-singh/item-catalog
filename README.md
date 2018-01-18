@@ -34,14 +34,14 @@ The Flask application uses stored HTML templates in the tempaltes folder to buil
 ## JSON Endpoints
 The following are open to the public:
 
-Catalog JSON: `/catalog/JSON`
-    - Displays the whole catalog. Categories and all items.
+Catalog JSON: `/catalog/items/JSON`
+    - Displays the whole items.
 
 Categories JSON: `/catalog/categories/JSON`
     - Displays all categories
 
-Category Items JSON: `/catalog/<path:category_name>/items/JSON`
+Category Items JSON: `/catalog/<int:category_id>/items/JSON`
     - Displays items for a specific category
 
-Category Item JSON: `/catalog/<path:category_name>/<path:item_name>/JSON`
+Category Item JSON: `/catalog/<int:category_id>/items/<int:item_id>/JSON`
     - Displays a specific category item.
