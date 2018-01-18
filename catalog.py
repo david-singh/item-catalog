@@ -222,6 +222,7 @@ def showCategoryItems(category_id):
                                categories=categories, category=category,
                                login_session=login_session)
 
+ 
 # Show a description of a category item
 @app.route('/category/<int:category_id>/item/<int:item_id>')
 def categoryItem(category_id, item_id):
@@ -301,7 +302,8 @@ def deleteItem(category_id, item_id):
     itemToDelete = session.query(Item).filter_by(id=item_id).one()
     category = session.query(Category).filter_by(id=category_id).one()
     if login_session['user_id'] != itemToDelete.user_id:
-        flash('You are not authorized to delete %s item created by another user'
+        flash('You are not authorized to delete %s '
+              'item created by another user'
               '!' % itemToDelete.name)
         return redirect(url_for('homePage'))
     if request.method == 'POST':
