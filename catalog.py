@@ -180,9 +180,9 @@ def gdisconnect():
         del login_session['email']
         del login_session['picture']
 
-        response = make_response(json.dumps('You have successfully been logged'
-                                            ' out.'), 200)
-        response.headers['Content-Type'] = 'application/json'
+        # logout
+        response = redirect(url_for('homePage'))
+        flash("You are now logged out.")
         return response
     else:
         # For whatever reason, the given token was invalid.
